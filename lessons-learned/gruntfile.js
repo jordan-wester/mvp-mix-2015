@@ -10,13 +10,21 @@ module.exports = function (grunt) {
     },
 
     watch: {
+      config: {
+        files: ['gruntfile.js'],
+        tasks: ['release']
+      },
       css: {
         files: ['stylesheets/**/*.scss'],
         tasks: ['sass']
       },
-      admin: {
-        files: ['app/admin/**/*.js'],
-        tasks: ['concat:admin', 'ngAnnotate:admin', 'uglify:admin']
+      user: {
+        files: ['app/user/**/*.js'],
+        tasks: ['concat:user', 'ngAnnotate:user', 'uglify:user']
+      },
+      product: {
+        files: ['app/product/**/*.js'],
+        tasks: ['concat:product', 'ngAnnotate:product', 'uglify:product']
       },
       shared: {
         files: ['app/shared/**/*.js'],
@@ -32,9 +40,13 @@ module.exports = function (grunt) {
       options: {
         sourceMap: false
       },
-      admin: {
-        src: ['app/admin/adminModule.js', 'app/admin/**/*.js'],
-        dest: 'dist/admin.js'
+      user: {
+        src: ['app/user/userModule.js', 'app/user/**/*.js'],
+        dest: 'dist/user.js'
+      },
+      product: {
+        src: ['app/product/productModule.js', 'app/product/**/*.js'],
+        dest: 'dist/product.js'
       },
       shared: {
         src: [
@@ -60,8 +72,11 @@ module.exports = function (grunt) {
         remove: false,
         singleQuotes: true
       },
-      admin: {
-        src: ['dist/admin.js']
+      user: {
+        src: ['dist/user.js']
+      },
+      product: {
+        src: ['dist/product.js']
       },
       shared: {
         src: ['dist/shared.js']
@@ -73,9 +88,14 @@ module.exports = function (grunt) {
         mangle: true,
         sourceMap: true
       },
-      admin: {
+      user: {
         files: {
-          'dist/admin.min.js': ['dist/admin.js']
+          'dist/user.min.js': ['dist/user.js']
+        }
+      },
+      product: {
+        files: {
+          'dist/product.min.js': ['dist/product.js']
         }
       },
       shared: {
