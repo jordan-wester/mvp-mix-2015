@@ -1,2 +1,2 @@
-angular.module('admin', []);
+angular.module('user', []);
 
