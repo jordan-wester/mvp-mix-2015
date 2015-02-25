@@ -26,7 +26,7 @@ angular.module('shared').factory('EventService', function($rootScope, $timeout, 
         // construct arguments to pass to $emit so that the function signature remains the same
         $rootScope.$emit.apply($rootScope, args);
       }
-      else
+      else {
         $log.debug(eventName + ' event does not have a listener defined - canceling...');
       }
     });

@@ -11,6 +11,9 @@ angular.module('product').controller('ProductListController', function($scope) {
         name: 'Product 2',
         description: 'The 2nd product'
       }
+
+
+      
     ]
   };
 

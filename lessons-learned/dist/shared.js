@@ -1,7 +1,7 @@
 angular.module('shared', []);
 
 
-angular.module('shared').factory('EventService', function($rootScope, $timeout, $log) {
+angular.module('shared').factory('EventService', ['$rootScope', '$timeout', '$log', function($rootScope, $timeout, $log) {
   var activeEventListeners = {};
 
   var registerListener = function(eventName, eventHandler, scope) {
@@ -28,7 +28,7 @@ angular.module('shared').factory('EventService', function($rootScope, $timeout, 
         // construct arguments to pass to $emit so that the function signature remains the same
         $rootScope.$emit.apply($rootScope, args);
       }
-      else
+      else {
         $log.debug(eventName + ' event does not have a listener defined - canceling...');
       }
     });
@@ -48,7 +48,7 @@ angular.module('shared').factory('EventService', function($rootScope, $timeout, 
     throwEvent: throwEvent,
     throwEventOnLoad: throwEventOnLoad
   };
-});
+}]);
 
 angular.module('main', ['ui.router', 'user', 'product', 'shared'])
 

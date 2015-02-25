@@ -1,31 +1,22 @@
-angular.module('demo').controller('ExampleController', function($rootScope, $scope, ExampleService) {
-  var eventListener;
 
+
+angular.module('demo').controller('PaginationController', function($scope, EventService, BaseService) {
   var init = function() {
+    EventService.registerListener(BaseService.events.searchResultCountChanged, onSearchResultCountChanged);
 
-    $rootScope.$broadcast('eventName', arg1, arg2);
-
-    var eventListener = $rootScope.$on('eventName', function(event, arg1, arg2) {
-      // handle event
-    });
-
-    $scope.$on('$destroy', function() {
-      eventListener();
-    });
-
-    loadData();
+    // Default page size
+    $scope.pageSize = 25;
   };
 
-  var eventHandler = function(event, arg1, arg2) {
-
+  var onSearchResultCountChanged = function(event, totalResultCount) {
+    // Update number of pages
   };
 
-  var loadData = function() {
-    var data = [
-      // Test Data
-    ];
-
-    $rootScope.$emit(ExampleService.events.dataLoaded, data);
+  $scope.changePageNumber = function(pageNumber) {
+    EventService.throwEvent(BaseService.events.paginationDataChanged, {
+      from: pageNumber,
+      pageSize: $scope.pageSize
+    });
   };
 
   init();
