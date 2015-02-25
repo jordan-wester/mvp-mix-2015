@@ -23,7 +23,7 @@ angular.module('product').controller('ProductListController', ['$scope', functio
       }
 
 
-      
+
     ]
   };
 

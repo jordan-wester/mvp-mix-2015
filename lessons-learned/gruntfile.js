@@ -9,29 +9,6 @@ module.exports = function (grunt) {
       }
     },
 
-    watch: {
-      config: {
-        files: ['gruntfile.js'],
-        tasks: ['release']
-      },
-      css: {
-        files: ['stylesheets/**/*.scss'],
-        tasks: ['sass']
-      },
-      user: {
-        files: ['app/user/**/*.js'],
-        tasks: ['concat:user', 'ngAnnotate:user', 'uglify:user']
-      },
-      product: {
-        files: ['app/product/**/*.js'],
-        tasks: ['concat:product', 'ngAnnotate:product', 'uglify:product']
-      },
-      shared: {
-        files: ['app/shared/**/*.js'],
-        tasks: ['concat:shared', 'ngAnnotate:shared', 'uglify:shared']
-      }
-    },
-
     clean: [
       'dist/*'
     ],
@@ -108,13 +85,36 @@ module.exports = function (grunt) {
           'dist/libs.min.js': ['dist/libs.js']
         }
       }
-    }
+    },
+
+    watch: {
+      config: {
+        files: ['gruntfile.js'],
+        tasks: ['release']
+      },
+      css: {
+        files: ['stylesheets/**/*.scss'],
+        tasks: ['sass']
+      },
+      user: {
+        files: ['app/user/**/*.js'],
+        tasks: ['concat:user', 'ngAnnotate:user', 'uglify:user']
+      },
+      product: {
+        files: ['app/product/**/*.js'],
+        tasks: ['concat:product', 'ngAnnotate:product', 'uglify:product']
+      },
+      shared: {
+        files: ['app/shared/**/*.js'],
+        tasks: ['concat:shared', 'ngAnnotate:shared', 'uglify:shared']
+      }
+    },
   });
 
-  grunt.registerTask('default', ['connect', 'watch']);
   grunt.registerTask('runtests', ['jshint', 'concat', 'karma:unit']);
   grunt.registerTask('compile', ['clean', 'concat']);
   grunt.registerTask('release', ['compile', 'ngAnnotate', 'uglify']);
+  grunt.registerTask('default', ['connect', 'watch']);
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');

@@ -13,7 +13,7 @@ angular.module('product').controller('ProductListController', function($scope) {
       }
 
 
-      
+
     ]
   };
 
