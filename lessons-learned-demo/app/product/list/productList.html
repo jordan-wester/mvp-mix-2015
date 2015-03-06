@@ -1,0 +1,6 @@
+<div>
+  Product List
+  <div ng-repeat="product in products" ng-init="productIndex = $index">
+    <div ng-include="app/product/list/productTemplate.html"></div>
+  </div>
+</div>
