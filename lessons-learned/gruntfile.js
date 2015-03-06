@@ -89,10 +89,6 @@ module.exports = function (grunt) {
     },
 
     watch: {
-      config: {
-        files: ['gruntfile.js'],
-        tasks: ['release']
-      },
       css: {
         files: ['stylesheets/**/*.scss'],
         tasks: ['sass']
