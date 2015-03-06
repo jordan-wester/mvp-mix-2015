@@ -2,7 +2,7 @@
 
 angular.module('demo').controller('PaginationController', function($scope, EventService, BaseService) {
   var init = function() {
-    EventService.registerListener(BaseService.events.searchResultCountChanged, onSearchResultCountChanged);
+    EventService.registerListener(BaseService.events.searchResultCountChanged, onSearchResultCountChanged, $scope);
 
     // Default page size
     $scope.pageSize = 25;

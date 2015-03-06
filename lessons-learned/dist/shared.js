@@ -1,6 +1,5 @@
 angular.module('shared', []);
 
-
 angular.module('shared').factory('EventService', ['$rootScope', '$timeout', '$log', function($rootScope, $timeout, $log) {
   var activeEventListeners = {};
 

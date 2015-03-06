@@ -1,3 +1,5 @@
+
+
 angular.module('demo').controller('UglyInitController', function($scope) {
   // No good way to understand what all is executed when the controller is initialized...
 
@@ -23,6 +25,8 @@ angular.module('demo').controller('UglyInitController', function($scope) {
   $scope.$watch('total', function(newTotal, oldTotal) {
 
   });
+
+  $scope.total = $scope.add(x, y);
 
   var privateFunction = function() {
     console.log(x + y);
