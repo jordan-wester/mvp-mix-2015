@@ -1,0 +1,20 @@
+<h3>
+    Make a word cloud!
+</h3>
+
+<div class="form-group">
+    <input type="text" class="form-control" placeholder="Add a new topic" ng-model="newTopic" />
+</div>
+
+<button type="button" class="btn btn-primary" ng-click="addTopic()">
+  <span class="glyphicon glyphicon-cloud"></span> Add Topic
+</button>
+
+<div class="row">
+    <div class="col-lg-8">
+<jqcloud words="topics" width="500" height="350"></jqcloud>
+    </div>
+    <div class="col-lg-4">
+<word-list topics="topics"></word-list>
+    </div>
+</div>
